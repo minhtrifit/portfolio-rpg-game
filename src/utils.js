@@ -1,4 +1,4 @@
-import { MOVESET_KEYS, SPEED, SPRITES_URL } from "./constants";
+import { MOVESET_KEYS, OBJECT_SPITES_URL, SPEED, SPRITES_URL } from "./constants";
 
 export const loadPlayer = (k) => {
     k.loadSprite("player_idle", SPRITES_URL.idle, {
@@ -61,6 +61,25 @@ export const loadPlayer = (k) => {
         },
     });
 };
+
+export const loadObject = (k) => {
+    k.loadSprite("floor", OBJECT_SPITES_URL.floor);
+    k.loadSprite("door", OBJECT_SPITES_URL.door);
+    k.loadSprite("wall", OBJECT_SPITES_URL.wall);
+    k.loadSprite("window", OBJECT_SPITES_URL.window);
+    k.loadSprite("shelf_top", OBJECT_SPITES_URL.shelf_top);
+    k.loadSprite("shelf_bottom", OBJECT_SPITES_URL.shelf_bottom);
+    k.loadSprite("computer_top", OBJECT_SPITES_URL.computer_top);
+    k.loadSprite("computer_bottom", OBJECT_SPITES_URL.computer_bottom);
+    k.loadSprite("carpet_top_left", OBJECT_SPITES_URL.carpet_top_left);
+    k.loadSprite("carpet_top_right", OBJECT_SPITES_URL.carpet_top_right);
+    k.loadSprite("carpet_bottom_left", OBJECT_SPITES_URL.carpet_bottom_left);
+    k.loadSprite("carpet_bottom_right", OBJECT_SPITES_URL.carpet_bottom_right);
+    k.loadSprite("bed_top", OBJECT_SPITES_URL.bed_top);
+    k.loadSprite("bed_bottom", OBJECT_SPITES_URL.bed_bottom);
+    k.loadSprite("barrier_top", OBJECT_SPITES_URL.barrier_top);
+    k.loadSprite("barrier_bottom", OBJECT_SPITES_URL.barrier_bottom);
+}
 
 export const playerMove = (player) => {
     MOVESET_KEYS.map((key) => {
