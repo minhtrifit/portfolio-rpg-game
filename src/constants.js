@@ -40,3 +40,16 @@ export const MOVESET_KEYS = [
 ];
 
 export const INTERACT_KEY = "f";
+
+export const map = [
+    "zxxxxxxz",
+    "z&%#$%!z",
+    "z@....*z",
+    "z..12..z",
+    "za.34..z",
+    "zb.....z",
+    "zyyyyyyz",
+];
+
+export const tileWidth = 64;
+export const tileHeight = 64;
