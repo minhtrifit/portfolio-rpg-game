@@ -8,7 +8,10 @@ k.scene("main", () => {
         sprite("player_idle"),
         scale(3),
         pos(100, 200),
-        area(),
+        area({
+            shape: new k.Rect(k.vec2(0, 3), 10, 30)
+        }),
+        anchor("center"),
         body(),
         "player",
     ]);

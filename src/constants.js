@@ -1,6 +1,6 @@
 export const SPRITES_URL = {
-    idle: "/public/Character/idle.png",
-    run: "/public/Character/run.png"
+    idle: "Character/idle.png",
+    run: "Character/run.png"
 };
 
 export const SPEED = 200;
