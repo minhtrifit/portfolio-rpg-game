@@ -3,8 +3,8 @@ export const SPRITES_URL = {
     run: "Character/run.png"
 };
 
-export const OBJECT_SPITES_URL = {
-    ["floor"]: "/Object.floor.png",
+export const OBJECT_SPRITES_URL = {
+    ["floor"]: "Object/floor.png",
     ["wall"]: "Object/wall.png",
     ["window"]: "Object/window.png",
     ["shelf_top"]: "Object/shelf_top.png",
