@@ -1,6 +1,8 @@
-import { map, tileHeight, tileWidth } from "./constants";
+import { INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
 import { k } from "./kaboomCtx";
 import { loadObject, loadPlayer, playerMove } from "./utils";
+
+let interactObj = null;
 
 k.scene("main", () => {
     loadPlayer(k);
@@ -222,6 +224,27 @@ k.scene("main", () => {
     player.play("idle-down");
 
     playerMove(player);
+
+    player.onUpdate(() => {
+        k.camPos(player.pos.x, player.pos.y - 50);
+    })
+
+    player.onCollide("computer_trigger", (computer) => {
+        console.log("Player collide computer");
+
+        interactObj = "computer";
+
+        k.onKeyPress(INTERACT_KEY, () => {
+            if (interactObj !== null && interactObj === "computer") {
+                console.log("Player interact computer");
+            }
+        });
+    });
+    
+    player.onCollideEnd("computer_trigger", (a) => {
+        console.log("Player collide computer end");
+        interactObj = null;
+    });
 });
 
 k.go("main");
