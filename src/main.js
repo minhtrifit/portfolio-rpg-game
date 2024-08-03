@@ -1,6 +1,11 @@
 import { INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
 import { k } from "./kaboomCtx";
-import { destroyInteractArrow, loadObject, loadPlayer, playerMove, spawnInteractArrow } from "./utils";
+import { destroyInteractArrow, hideDialog, loadObject, loadPlayer, playerMove, showDialog, spawnInteractArrow } from "./utils";
+
+const gameCanvas = document.getElementById("game");
+const dialogCtn = document.getElementById("dialog-container");
+const dialogText = document.getElementById("dialog-text");
+const dialogCloseBtn = document.getElementById("dialog-close-btn");
 
 let interactObj = null;
 
@@ -227,6 +232,11 @@ k.scene("main", () => {
 
     player.onUpdate(() => {
         k.camPos(player.pos.x, player.pos.y - 50);
+
+        dialogCloseBtn.addEventListener("click", () => {
+            hideDialog(dialogCtn, dialogText);
+            gameCanvas.focus();
+        })
     })
 
     player.onCollide("computer_trigger", (computer) => {
@@ -242,6 +252,7 @@ k.scene("main", () => {
         k.onKeyPress(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "computer") {
                 console.log("Player interact computer");
+                showDialog(dialogCtn);
             }
         });
     });
@@ -250,6 +261,7 @@ k.scene("main", () => {
         console.log("Player collide computer end");
         interactObj = null;
         destroyInteractArrow(k);
+        hideDialog(dialogCtn, dialogText);
     });
 });
 

@@ -165,3 +165,12 @@ export const destroyInteractArrow = (k) => {
     const interactArrows = k.get("interact_arrow");
     k.destroy(interactArrows[0]);
 }
+
+export const showDialog = (dialogCtn) => {
+    dialogCtn.style.display = "block";
+}
+
+export const hideDialog = (dialogCtn, dialogText) => {
+    dialogText.innerHTML = "";
+    dialogCtn.style.display = "none";
+}
