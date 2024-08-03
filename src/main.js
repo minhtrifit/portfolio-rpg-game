@@ -1,6 +1,6 @@
 import { INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
 import { k } from "./kaboomCtx";
-import { loadObject, loadPlayer, playerMove } from "./utils";
+import { destroyInteractArrow, loadObject, loadPlayer, playerMove, spawnInteractArrow } from "./utils";
 
 let interactObj = null;
 
@@ -234,6 +234,11 @@ k.scene("main", () => {
 
         interactObj = "computer";
 
+        const computers = k.get("computer");
+        const computerTop = computers[0];
+        
+        spawnInteractArrow(k, computerTop.pos.sub(0, 10));
+
         k.onKeyPress(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "computer") {
                 console.log("Player interact computer");
@@ -244,6 +249,7 @@ k.scene("main", () => {
     player.onCollideEnd("computer_trigger", (a) => {
         console.log("Player collide computer end");
         interactObj = null;
+        destroyInteractArrow(k);
     });
 });
 

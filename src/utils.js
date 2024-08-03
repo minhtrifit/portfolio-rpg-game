@@ -146,3 +146,22 @@ export const playerMove = (player) => {
         })
     })
 }
+
+export const spawnInteractArrow = (k, p) => {
+    k.add([
+        polygon([
+            vec2(-10, -10), // Top left
+            vec2(10, -10), // Top right
+            vec2(0, 10), // Bottom center
+        ]),
+        color(255, 0, 0),
+        pos(p),
+        outline(3, k.Color.BLACK),
+        "interact_arrow",
+    ]);
+}
+
+export const destroyInteractArrow = (k) => {
+    const interactArrows = k.get("interact_arrow");
+    k.destroy(interactArrows[0]);
+}
