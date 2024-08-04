@@ -1,6 +1,6 @@
 import { dialogContents, INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
 import { k } from "./kaboomCtx";
-import { destroyInteractArrow, getTime, hideDialog, loadObject, loadPlayer, playerMove, showDialog, spawnInteractArrow } from "./utils";
+import { destroyInteractArrow, getTime, hideDialog, loadObject, loadPlayer, loadSound, playerMove, showDialog, spawnInteractArrow } from "./utils";
 
 const gameCanvas = document.getElementById("game");
 const dialogCtn = document.getElementById("dialog-container");
@@ -12,6 +12,7 @@ let interactObj = null;
 k.scene("main", () => {
     loadPlayer(k);
     loadObject(k);
+    loadSound(k);
 
     const mapWidth = map[0].length * tileWidth;
     const mapHeight = map.length * tileHeight;
@@ -253,6 +254,7 @@ k.scene("main", () => {
         k.onKeyPress(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "computer") {
                 console.log("Player interact computer");
+                k.play("interact_sound");
                 showDialog(dialogCtn, interactObj, dialogText);
             }
         });
@@ -279,6 +281,7 @@ k.scene("main", () => {
         onKeyDown(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "shelf") {
                 console.log("Trigger shelf interact");
+                k.play("interact_sound");
                 showDialog(dialogCtn, interactObj, dialogText);
             }
         });
@@ -305,6 +308,7 @@ k.scene("main", () => {
         onKeyDown(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "bed") {
                 console.log("Trigger bed interact");
+                k.play("interact_sound");
                 dialogContents.bed = getTime();
                 showDialog(dialogCtn, interactObj, dialogText);
             }

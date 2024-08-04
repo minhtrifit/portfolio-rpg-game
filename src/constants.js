@@ -22,6 +22,10 @@ export const OBJECT_SPRITES_URL = {
     ["barrier_bottom"]: "Object/barrier_bottom.png",
 }
 
+export const SOUNDS_URL = {
+    interact: "/Sound/interact.mp3"
+}
+
 export const SPEED = 200;
 
 export const MOVESET_KEYS = [

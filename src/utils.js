@@ -1,4 +1,4 @@
-import { dialogContents, MOVESET_KEYS, OBJECT_SPRITES_URL, SPEED, SPRITES_URL } from "./constants";
+import { dialogContents, MOVESET_KEYS, OBJECT_SPRITES_URL, SOUNDS_URL, SPEED, SPRITES_URL } from "./constants";
 
 export const loadPlayer = (k) => {
     k.loadSprite("player_idle", SPRITES_URL.idle, {
@@ -79,6 +79,10 @@ export const loadObject = (k) => {
     k.loadSprite("bed_bottom", OBJECT_SPRITES_URL.bed_bottom);
     k.loadSprite("barrier_top", OBJECT_SPRITES_URL.barrier_top);
     k.loadSprite("barrier_bottom", OBJECT_SPRITES_URL.barrier_bottom);
+}
+
+export const loadSound = (k) => {
+    k.loadSound("interact_sound", SOUNDS_URL.interact);
 }
 
 export const playerMove = (player) => {
