@@ -1,4 +1,4 @@
-import { MOVESET_KEYS, OBJECT_SPRITES_URL, SPEED, SPRITES_URL } from "./constants";
+import { dialogContents, MOVESET_KEYS, OBJECT_SPRITES_URL, SPEED, SPRITES_URL } from "./constants";
 
 export const loadPlayer = (k) => {
     k.loadSprite("player_idle", SPRITES_URL.idle, {
@@ -166,8 +166,10 @@ export const destroyInteractArrow = (k) => {
     k.destroy(interactArrows[0]);
 }
 
-export const showDialog = (dialogCtn) => {
+export const showDialog = (dialogCtn, dialogTag, dialogText) => {
     dialogCtn.style.display = "block";
+    const text = dialogContents[dialogTag];
+    dialogText.innerHTML = text;
 }
 
 export const hideDialog = (dialogCtn, dialogText) => {

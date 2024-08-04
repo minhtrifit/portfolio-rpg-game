@@ -53,3 +53,9 @@ export const map = [
 
 export const tileWidth = 64;
 export const tileHeight = 64;
+
+export const dialogContents = {
+    computer: "This is computer",
+    bed: "This is bed",
+    shelf: "This is shelf"
+}

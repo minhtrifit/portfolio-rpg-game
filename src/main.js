@@ -239,6 +239,7 @@ k.scene("main", () => {
         })
     })
 
+    // Computer collide event
     player.onCollide("computer_trigger", (computer) => {
         console.log("Player collide computer");
 
@@ -252,7 +253,7 @@ k.scene("main", () => {
         k.onKeyPress(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "computer") {
                 console.log("Player interact computer");
-                showDialog(dialogCtn);
+                showDialog(dialogCtn, "computer", dialogText);
             }
         });
     });
