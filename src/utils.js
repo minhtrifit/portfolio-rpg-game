@@ -169,8 +169,8 @@ export const destroyInteractArrow = (k) => {
 export const showDialog = (dialogCtn, dialogTag, dialogText) => {
     dialogCtn.style.display = "block";
     const text = dialogContents[dialogTag];
-    let index = 0;
     let currentText = "";
+    let index = 0;
 
     const intervalRef = setInterval(() => {
         if (index < text.length) {
@@ -187,4 +187,20 @@ export const showDialog = (dialogCtn, dialogTag, dialogText) => {
 export const hideDialog = (dialogCtn, dialogText) => {
     dialogText.innerHTML = "";
     dialogCtn.style.display = "none";
+}
+
+export const getTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    // Check if it's after 10:00 PM
+    if (hours > 22 || (hours === 22 && minutes > 0)) {
+        return `It's ${hours}:${minutes}, you should go to bed <3`;
+    } else {
+        return `It's ${hours}:${minutes}, you should keep working!`;
+    }   
 }

@@ -55,7 +55,7 @@ export const tileWidth = 64;
 export const tileHeight = 64;
 
 export const dialogContents = {
-    computer: "This is computer",
-    bed: "This is bed",
-    shelf: "This is shelf"
+    computer: `Hello my name is minhtrifit. Click to see my <a id="link" href="https://github.com/minhtrifit" target="_blank">Github</a> profile & see more my cool projects!`,
+    bed: `This is bed`,
+    shelf: `Here's my <a id="link" href="/Document/resume.pdf" target="_blank">Portfolio</a> as Software Engineer!`,
 }

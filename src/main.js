@@ -1,6 +1,6 @@
-import { INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
+import { dialogContents, INTERACT_KEY, map, tileHeight, tileWidth } from "./constants";
 import { k } from "./kaboomCtx";
-import { destroyInteractArrow, hideDialog, loadObject, loadPlayer, playerMove, showDialog, spawnInteractArrow } from "./utils";
+import { destroyInteractArrow, getTime, hideDialog, loadObject, loadPlayer, playerMove, showDialog, spawnInteractArrow } from "./utils";
 
 const gameCanvas = document.getElementById("game");
 const dialogCtn = document.getElementById("dialog-container");
@@ -305,7 +305,7 @@ k.scene("main", () => {
         onKeyDown(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "bed") {
                 console.log("Trigger bed interact");
-
+                dialogContents.bed = getTime();
                 showDialog(dialogCtn, interactObj, dialogText);
             }
         });
