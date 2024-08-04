@@ -169,7 +169,19 @@ export const destroyInteractArrow = (k) => {
 export const showDialog = (dialogCtn, dialogTag, dialogText) => {
     dialogCtn.style.display = "block";
     const text = dialogContents[dialogTag];
-    dialogText.innerHTML = text;
+    let index = 0;
+    let currentText = "";
+
+    const intervalRef = setInterval(() => {
+        if (index < text.length) {
+            currentText += text[index];
+            dialogText.innerHTML = currentText;
+            index++;
+            return;
+        }
+
+        clearInterval(intervalRef);
+    }, 5);
 }
 
 export const hideDialog = (dialogCtn, dialogText) => {

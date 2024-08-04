@@ -253,7 +253,7 @@ k.scene("main", () => {
         k.onKeyPress(INTERACT_KEY, () => {
             if (interactObj !== null && interactObj === "computer") {
                 console.log("Player interact computer");
-                showDialog(dialogCtn, "computer", dialogText);
+                showDialog(dialogCtn, interactObj, dialogText);
             }
         });
     });
@@ -264,6 +264,59 @@ k.scene("main", () => {
         destroyInteractArrow(k);
         hideDialog(dialogCtn, dialogText);
     });
+
+    // Shelf collision event
+    player.onCollide("shelf_trigger", (shelf) => {
+        console.log("Player collide shelf");
+
+        interactObj = "shelf";
+
+        const shelfs = k.get("shelf");
+        const shelfTop = shelfs[0];
+
+        spawnInteractArrow(k, shelfTop.pos.sub(0, 10));
+
+        onKeyDown(INTERACT_KEY, () => {
+            if (interactObj !== null && interactObj === "shelf") {
+                console.log("Trigger shelf interact");
+                showDialog(dialogCtn, interactObj, dialogText);
+            }
+        });
+    });
+
+    k.onCollideEnd("player", "shelf_trigger", () => {
+        console.log("Player collide shelf end");
+        interactObj = null;
+        destroyInteractArrow(k);
+        hideDialog(dialogCtn, dialogText);
+    })
+
+    // Bed collision event
+    player.onCollide("bed_trigger", (bed) => {
+        console.log("Player collide bed");
+
+        interactObj = "bed";
+
+        const beds = k.get("bed");
+        const bedTop = beds[0];
+
+        spawnInteractArrow(k, bedTop.pos.sub(0, 0));
+
+        onKeyDown(INTERACT_KEY, () => {
+            if (interactObj !== null && interactObj === "bed") {
+                console.log("Trigger bed interact");
+
+                showDialog(dialogCtn, interactObj, dialogText);
+            }
+        });
+    });
+
+    k.onCollideEnd("player", "bed_trigger", () => {
+        console.log("Player collide bed end");
+        interactObj = null;
+        destroyInteractArrow(k);
+        hideDialog(dialogCtn, dialogText);
+    })
 });
 
 k.go("main");
