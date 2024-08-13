@@ -24,7 +24,7 @@ hoặc cài đặt với legacy peer dependencies.
 npm install --legacy-peer-deps
 ```
 
-Run client project (supported by [Create Next App](https://nextjs.org/docs/getting-started/installation))
+Khởi chạy dự án (supported by [Vite](https://vitejs.dev/guide/))
 
 ```console
 npm run dev
@@ -34,9 +34,10 @@ npm run dev
 
 [![Thumnail](./showcase/banner.png)](https://youtu.be/vwDPnmYpn-w)
 
-## 💌 Contact
+## 💌 Kết nối
 
 - Author - [minhtrifit](https://minhtrifitdev.netlify.app)
-- [Github](https://github.com/minhtrifit)
+- [⚡ Github](https://github.com/minhtrifit)
+- [🔴 Youtube](https://www.youtube.com/@minhtrifit)
 
 > CopyRight© minhtrifit
