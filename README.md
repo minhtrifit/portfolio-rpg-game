@@ -32,7 +32,7 @@ npm run dev
 
 ## ▶️ YouTube Demo
 
-[![Thumnail](./showcase/banner.png)](https://youtu.be/vwDPnmYpn-w)
+[![Thumnail](./showcase/banner2.png)](https://youtu.be/vwDPnmYpn-w)
 
 ## 💌 Kết nối
 
